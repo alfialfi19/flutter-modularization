@@ -1,0 +1,1 @@
+export 'mockito/mockito.dart';

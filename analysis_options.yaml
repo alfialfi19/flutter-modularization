@@ -1,29 +1,192 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
-include: package:flutter_lints/flutter.yaml
+analyzer:
+  exclude:
+    - lib/**/**.g.dart
+  errors:
+    # treat missing required parameters as a warning (not a hint)
+    missing_required_param: warning
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at
-  # https://dart-lang.github.io/linter/lints/index.html.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # FROM EFFECTIVE DART 1.3.0
+    # https://github.com/tenhobi/effective_dart/blob/master/lib/analysis_options.1.3.0.yaml
+    # STYLE
+    - camel_case_types
+    - camel_case_extensions
+    - library_names
+    - file_names
+    - library_prefixes
+    - non_constant_identifier_names
+    - constant_identifier_names # prefer # https://github.com/dart-lang/linter/issues/204
+    - directives_ordering
+    - lines_longer_than_80_chars # avoid
+    - curly_braces_in_flow_control_structures
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    # DOCUMENTATION
+    - slash_for_doc_comments
+    - package_api_docs # prefer
+    #- public_member_api_docs # prefer
+    #- comment_references # Unused because https://github.com/dart-lang/sdk/issues/36974
+
+    # USAGE
+    - implementation_imports
+    - avoid_relative_lib_imports
+    - prefer_relative_imports
+    - prefer_adjacent_string_concatenation
+    - prefer_interpolation_to_compose_strings # prefer
+    - unnecessary_brace_in_string_interps # avoid
+    - prefer_collection_literals
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - avoid_function_literals_in_foreach_calls # avoid
+    - prefer_iterable_whereType
+    - prefer_function_declarations_over_variables
+    - unnecessary_lambdas
+    - prefer_equal_for_default_values
+    - avoid_init_to_null
+    - unnecessary_getters_setters
+    #- unnecessary_getters # prefer # Disabled pending fix: https://github.com/dart-lang/linter/issues/23
+    #- prefer_expression_function_bodies # consider
+    - unnecessary_this
+    - prefer_initializing_formals
+    - type_init_formals
+    - empty_constructor_bodies
+    - unnecessary_new
+    - unnecessary_const
+    - avoid_catches_without_on_clauses # avoid
+    - avoid_catching_errors
+    - use_rethrow_when_possible
+
+    # DESIGN
+    - use_to_and_as_if_applicable # prefer
+    - one_member_abstracts # avoid
+    - avoid_classes_with_only_static_members # avoid
+    # - prefer_mixin # https://github.com/dart-lang/language/issues/32
+    - prefer_final_fields # prefer
+    - use_setters_to_change_properties
+    - avoid_setters_without_getters
+    - avoid_returning_null # avoid
+    - avoid_returning_this # avoid
+    - type_annotate_public_apis # prefer
+    - prefer_typing_uninitialized_variables # consider
+    - omit_local_variable_types # consider
+    - avoid_types_on_closure_parameters # avoid
+    - avoid_return_types_on_setters
+    - prefer_generic_function_type_aliases
+    - avoid_private_typedef_functions # prefer
+    - use_function_type_syntax_for_parameters # consider
+    - avoid_positional_boolean_parameters # avoid
+    - hash_and_equals
+    - avoid_equals_and_hash_code_on_mutable_classes # avoid
+    - avoid_null_checks_in_equality_operators
+
+    # FROM FLUTTER
+    # https://github.com/flutter/flutter/blob/master/packages/flutter/lib/analysis_options_user.yaml
+    #- always_specify_types
+    - avoid_empty_else
+    - avoid_web_libraries_in_flutter
+    - await_only_futures
+    - cancel_subscriptions
+    # - close_sinks # disabled for now. FlutterBloc will handle the close automatically.
+    # - comment_references # we do not presume as to what people want to reference in their dartdocs
+    - control_flow_in_finally
+    - empty_statements
+    - package_names
+    - package_prefixed_library_names
+    # - sort_constructors_first
+    # - sort_unnamed_constructors_first
+    - test_types_in_equals
+    - throw_in_finally
+    - unnecessary_statements
+    - unrelated_type_equality_checks
+    - valid_regexps
+
+    # FROM PEDANTIC 1.9.0
+    # https://github.com/google/pedantic/blob/master/lib/analysis_options.1.9.0.yaml
+    - always_declare_return_types
+    - always_require_non_null_named_parameters
+    - annotate_overrides
+    - avoid_shadowing_type_parameters
+    - avoid_types_as_parameter_names
+    - empty_catches
+    - no_duplicate_case_values
+    - null_closures
+    - prefer_conditional_assignment
+    - prefer_contains
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_if_null_operators
+    #- prefer_single_quotes # consider to enable this rule
+    - prefer_spread_collections
+    - recursive_getters
+    #- unawaited_futures
+    - unnecessary_null_in_if_null_operators
+
+    # THE REST OF DART LINT
+    - always_put_control_body_on_new_line
+    - always_put_required_named_parameters_first
+    - avoid_bool_literals_in_conditional_expressions
+    - avoid_double_and_int_checks
+    - avoid_escaping_inner_quotes
+    - avoid_field_initializers_in_const_classes
+    - avoid_implementing_value_types
+    - avoid_js_rounded_ints
+    - avoid_print
+    - avoid_redundant_argument_values
+    - avoid_renaming_method_parameters
+    - avoid_returning_null_for_future
+    - avoid_returning_null_for_void
+    - avoid_single_cascade_in_expression_statements
+    - avoid_slow_async_io
+    # - avoid_type_to_string # Must do, but disabled because our dart version is not >= 2.10.0
+    - avoid_unnecessary_containers
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    - cascade_invocations
+    - do_not_use_environment
+    - exhaustive_cases
+    - flutter_style_todos
+    - iterable_contains_unrelated_type
+    - join_return_with_assignment
+    - leading_newlines_in_multiline_strings
+    - list_remove_unrelated_type
+    - literal_only_boolean_expressions
+    - no_adjacent_strings_in_list
+    - no_logic_in_create_state
+    - no_runtimeType_toString
+    - only_throw_errors
+    - overridden_fields
+    - parameter_assignments
+    - prefer_asserts_in_initializer_lists
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - prefer_constructors_over_static_methods
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - prefer_foreach
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_inlined_adds
+    - prefer_is_not_operator
+    - prefer_null_aware_operators
+    - prefer_void_to_null
+    - provide_deprecation_message
+    - sized_box_for_whitespace
+    - sort_child_properties_last
+    - sort_pub_dependencies
+    - sort_unnamed_constructors_first
+    - unnecessary_await_in_return
+    - unnecessary_null_aware_assignments
+    - unnecessary_nullable_for_final_variable_declarations
+    - unnecessary_overrides
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
+    - unsafe_html
+    - use_full_hex_values_for_flutter_colors
+    - use_is_even_rather_than_modulo
+    #- use_key_in_widget_constructors
+    - use_late_for_private_fields_and_variables
+    - use_raw_strings
+    - use_string_buffers
+    - void_checks
