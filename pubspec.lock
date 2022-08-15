@@ -162,13 +162,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
-  core_package:
+  core_module:
     dependency: "direct main"
     description:
-      path: core_package
+      path: core_module
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   coverage:
     dependency: transitive
     description:
@@ -410,6 +410,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.1"
+  profile_module:
+    dependency: "direct main"
+    description:
+      path: profile_module
+      relative: true
+    source: path
+    version: "0.0.1"
   provider:
     dependency: transitive
     description:
@@ -499,6 +506,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
+  stocks_symbol_module:
+    dependency: "direct main"
+    description:
+      path: stocks_symbol_module
+      relative: true
+    source: path
+    version: "0.0.1"
   stream_channel:
     dependency: transitive
     description:

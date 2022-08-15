@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:profile_module/commons/commons.dart';
 
-import '../../commons/commons.dart';
 import '../blocs.dart';
 
 class SignInCubit extends Cubit<BaseState> {

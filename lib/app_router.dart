@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'commons/commons.dart';
 import 'screens/screens.dart';
 
+// flutter create --template=package hello
 class AppRouter {
   /// Delegates for screen routing
   Route onGenerateRoute(RouteSettings routeSettings) {

@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:core_package/core_package.dart';
+import 'package:core_module/core_module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_modularization/my_app.dart';
+import 'package:profile_module/profile_module.dart';
+// import 'package:profile_module/profile_module.dart';
+import 'package:stocks_symbol_module/stocks_symbol_module.dart';
 
-import 'commons/commons.dart';
-import 'repositories/repositories.dart';
+import 'my_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,13 +17,15 @@ void main() {
   final BaseApiClient _apiClient = DioClient.instance;
 
   /// Change Base Url Here
-  const String _baseUrl = EnvConfig.baseProdUrl;
+  const _baseUrl = EnvConfig.baseProdUrl;
 
   // Repositories instantiation
   final BaseStockRepository _stockRepository = StockRepository(
     baseUrl: _baseUrl,
     apiClient: _apiClient,
   );
+
+  final BaseProfileRepository _profileRepository = ProfileRepository();
 
   // Disable Landscape Mode
   SystemChrome.setPreferredOrientations(
@@ -38,6 +41,7 @@ void main() {
         // firebaseClient: _firebaseClient,
         //Repository
         stockRepository: _stockRepository,
+        profileRepository: _profileRepository,
         // searchRepository: _searchRepository,
         // authRepository: _authRepository,
       ),

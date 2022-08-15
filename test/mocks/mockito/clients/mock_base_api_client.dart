@@ -4,7 +4,7 @@
 
 import 'dart:async' as _i3;
 
-import 'package:core_package/core_package.dart' as _i2;
+import 'package:core_package/core_module.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values

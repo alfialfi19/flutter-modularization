@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modularization/blocs/blocs.dart';
-import 'package:flutter_modularization/widgets/widgets.dart';
+import 'package:profile_module/commons/commons.dart';
 
+import '../blocs/blocs.dart';
 import '../commons/commons.dart';
+import '../widgets/widgets.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);

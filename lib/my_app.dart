@@ -1,20 +1,23 @@
-import 'package:core_package/core_package.dart';
+import 'package:core_module/core_module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:profile_module/profile_module.dart';
+import 'package:stocks_symbol_module/stocks_symbol_module.dart';
 
 import 'app_router.dart';
 import 'blocs/blocs.dart';
 import 'commons/commons.dart';
-import 'repositories/repositories.dart';
 
 class MyApp extends StatelessWidget {
   final BaseApiClient apiClient;
   final BaseStockRepository stockRepository;
+  final BaseProfileRepository profileRepository;
 
   const MyApp({
-    Key? key,
     required this.apiClient,
     required this.stockRepository,
+    required this.profileRepository,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -26,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider(
           create: (context) => stockRepository,
+        ),
+        RepositoryProvider(
+          create: (context) => profileRepository,
         ),
       ],
       child: MultiBlocProvider(
@@ -49,7 +55,7 @@ class MyApp extends StatelessWidget {
                 ),
           ),
         ],
-        child: FlutterMyApp(),
+        child: const FlutterMyApp(),
       ),
     );
   }
@@ -74,7 +80,7 @@ class _FlutterMyAppState extends State<FlutterMyApp> {
       navigatorKey: _navigatorKey,
       initialRoute: RouteName.splashScreen,
       onGenerateRoute: _appRouter.onGenerateRoute,
-      builder: (BuildContext context, Widget? child) {
+      builder: (context, child) {
         return Scaffold(
           body: MultiBlocListener(
             listeners: [

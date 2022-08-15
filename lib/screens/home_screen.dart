@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modularization/blocs/blocs.dart';
-import 'package:flutter_modularization/widgets/widgets.dart';
+import 'package:stocks_symbol_module/stocks_symbol_module.dart';
+
+// import '../blocs/blocs.dart';
 
 import '../commons/commons.dart';
-import '../repositories/repositories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -94,7 +94,7 @@ class HomeScreenContent extends StatelessWidget {
   }
 
   Widget _sectionContent(BuildContext context) {
-    return BlocBuilder<StockSymbolCubit, BaseState>(
+    return BlocBuilder<StockSymbolCubit, BaseStateStocks>(
       builder: (context, state) {
         List<StocksSymbol>? _resultsData;
 

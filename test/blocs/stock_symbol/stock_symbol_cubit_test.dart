@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_modularization/blocs/blocs.dart';
-import 'package:flutter_modularization/commons/commons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:stocks_symbol_module/stocks_symbol_module.dart';
 
 import '../../mocks/mocks.dart';
 

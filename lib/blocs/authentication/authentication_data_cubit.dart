@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:profile_module/commons/commons.dart';
 
 import '../../commons/commons.dart';
 import '../blocs.dart';

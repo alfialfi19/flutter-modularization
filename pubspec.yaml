@@ -22,8 +22,13 @@ dependencies:
   equatable: ^2.0.3
 
   # Common Modules
-  core_package:
-    path: core_package
+#  core_package: ^0.0.1
+  core_module:
+    path: core_module
+  stocks_symbol_module:
+    path: stocks_symbol_module
+  profile_module:
+    path: profile_module
 
 dev_dependencies:
   build_runner: ^2.1.5   # A runner to generate a code from a class manually or by watching for file changes

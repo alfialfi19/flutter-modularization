@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modularization/screens/home_screen.dart';
-import 'package:flutter_modularization/screens/profile_screen.dart';
 
 import '../blocs/blocs.dart';
 import '../commons/commons.dart';
+import 'home_screen.dart';
+import 'profile_screen.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({Key? key}) : super(key: key);
